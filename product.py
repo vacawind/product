@@ -11,14 +11,15 @@ print(products)
 
 
 # for p in products:
-# 	print(p[0],"的價格為",p[1])
+# 	print(p[0], "的價格為", p[1])
 
-with open("product.txt",'w') as f:
+# with open("product.txt", 'w') as f:
+# 	for p in products:
+# 		f.write(p[0] + "," + p[1] + "\n")
+
+
+with open("product.csv", 'w', encoding = "utf-8") as f:  #寫入中文時編碼，但若用excel開啟時還需從data在選編碼
+	f.write("商品名稱" + "," + "商品價格" + "\n")
 	for p in products:
-		f.write(p[0]+","+p[1]+"\n")
-
-
-with open("product.csv",'w') as f:
-	for p in products:
-		f.write(p[0]+","+p[1]+"\n")
+		f.write(p[0] + "," + p[1] + "\n")
 
