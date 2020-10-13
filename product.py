@@ -1,5 +1,12 @@
-
 products = []
+with open("product.csv", 'r', encoding = "utf-8") as f:
+	for line in f:
+		if "商品名稱,商品價格" in line:
+			continue
+		name, price = line.strip().split(",")
+		products.append([name,price])
+print(products)
+
 while True:
 	name = input("輸入商品名稱(若要停止輸入請按q)：")
 	if name == "q":
