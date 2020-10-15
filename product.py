@@ -1,19 +1,28 @@
+import os #operating system
+#讀取檔案
 products = []
-with open("product.csv", 'r', encoding = "utf-8") as f:
-	for line in f:
-		if "商品名稱,商品價格" in line:
-			continue
-		name, price = line.strip().split(",")
-		products.append([name,price])
-print(products)
+if os.path.isfile("product.csv"): #檢查檔案在不在
+	print("找到檔案了！")
+	while True:
+		name = input("輸入商品名稱(若要停止輸入請按q)：")
+		if name == "q":
+			break
+		price = input("輸入商品價格：") 
+		p = [name, price] # 建立二維清單的進階寫法
+		products.append(p)   
+	print(products)
 
+else:
+	print("找不到檔案!!!!")
+
+#讓使用者輸入
 while True:
-	name = input("輸入商品名稱(若要停止輸入請按q)：")
-	if name == "q":
-		break
-	price = input("輸入商品價格：") 
-	p = [name, price] # 建立二維清單的進階寫法
-	products.append(p)   
+		name = input("輸入商品名稱(若要停止輸入請按q)：")
+		if name == "q":
+			break
+		price = input("輸入商品價格：") 
+		p = [name, price] # 建立二維清單的進階寫法
+		products.append(p)   
 print(products)
 
 
